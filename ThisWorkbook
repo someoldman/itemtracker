@@ -1,0 +1,30 @@
+Private Sub Workbook_Open()
+Dim wsF As Worksheet
+Dim wsD As Worksheet
+Dim WorksheetName_Main As String
+Dim WorksheetName_Data As String
+Dim tbStock As OLEObject
+Dim tbDate As OLEObject
+Dim tbName As OLEObject
+Dim tbAmount As OLEObject
+Dim lb As OLEObject
+'''''
+WorksheetName_Main = "Form"
+WorksheetName_Data = "Data"
+'''''
+Set wsF = Worksheets(WorksheetName_Main)
+Set wsD = Worksheets(WorksheetName_Data)
+    Set lb = wsF.OLEObjects("ListBox1")
+    Set tbDate = wsF.OLEObjects("TextBoxDate")
+    Set tbName = wsF.OLEObjects("TextBoxName")
+    Set tbAmount = wsF.OLEObjects("TextBoxAmount")
+    Set tbStock = wsF.OLEObjects("TextBoxStock")
+
+
+    tbName.Object.Value = ""
+    tbAmount.Object.Value = ""
+    lb.Object.ListIndex = -1
+
+wsF.Select
+wsF.Protect DrawingObjects:=True, Contents:=True, Scenarios:=True
+End Sub
